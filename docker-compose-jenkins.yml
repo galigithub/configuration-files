@@ -9,8 +9,15 @@ services:
          - "$PWD/jenkins_home:/var/jenkins_home"
       networks:
          - net
+   nexus_service:
+      container_name: nexus
+      image: sonatype/nexus3
+      ports:
+         - "8081:8081"
+      volumes:
+         - "$PWD/nexus-data:/nexus-data"
+      networks:
+         - net
 networks:
    net:
-#########################
-
 
